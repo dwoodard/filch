@@ -10,3 +10,4 @@ bootstrap/cache/
 .env.*.php
 .env.php
 .env
+/.idea
