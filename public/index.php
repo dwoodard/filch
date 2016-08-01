@@ -9,7 +9,11 @@
 	
 <div id="app">
 
-	<filch>TEST</filch>
+
+	<filch>test1</filch>
+	<filch>test2</filch>
+	<filch>test3</filch>
+	<filch>test4</filch>
 
 </div>
 
