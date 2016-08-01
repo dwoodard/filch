@@ -1,0 +1,29 @@
+{
+  "name": "filch",
+  "version": "1.0.0",
+  "description": "Filter and Search Vue Component built in Vue.js",
+  "main": "app.js",
+  "scripts": {
+    "test": "test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dwoodard/filch.git"
+  },
+  "author": "Dustin Woodard",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dwoodard/filch/issues"
+  },
+  "homepage": "https://github.com/dwoodard/filch#readme",
+  "devDependencies": {
+    "gulp": "^3.8.8",
+    "laravel-elixir-browserify": "^0.8.1",
+    "vue": "^1.0.26"
+  },
+  "dependencies": {
+    "bootstrap-sass": "^3.0.0",
+    "laravel-elixir": "^4.0.0",
+    "laravel-elixir-vueify": "^1.0.0"
+  }
+}
