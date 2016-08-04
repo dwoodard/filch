@@ -10077,7 +10077,6 @@ module.exports = Vue;
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"_process":2}],2:[function(require,module,exports){
 // shim for using process in browser
-
 var process = module.exports = {};
 
 // cached from whatever global is present so that test runners that stub it
@@ -10089,21 +10088,35 @@ var cachedSetTimeout;
 var cachedClearTimeout;
 
 (function () {
-  try {
-    cachedSetTimeout = setTimeout;
-  } catch (e) {
-    cachedSetTimeout = function () {
-      throw new Error('setTimeout is not defined');
+    try {
+        cachedSetTimeout = setTimeout;
+    } catch (e) {
+        cachedSetTimeout = function () {
+            throw new Error('setTimeout is not defined');
+        }
     }
-  }
-  try {
-    cachedClearTimeout = clearTimeout;
-  } catch (e) {
-    cachedClearTimeout = function () {
-      throw new Error('clearTimeout is not defined');
+    try {
+        cachedClearTimeout = clearTimeout;
+    } catch (e) {
+        cachedClearTimeout = function () {
+            throw new Error('clearTimeout is not defined');
+        }
     }
-  }
 } ())
+function runTimeout(fun) {
+    if (cachedSetTimeout === setTimeout) {
+        return setTimeout(fun, 0);
+    } else {
+        return cachedSetTimeout.call(null, fun, 0);
+    }
+}
+function runClearTimeout(marker) {
+    if (cachedClearTimeout === clearTimeout) {
+        clearTimeout(marker);
+    } else {
+        cachedClearTimeout.call(null, marker);
+    }
+}
 var queue = [];
 var draining = false;
 var currentQueue;
@@ -10128,7 +10141,7 @@ function drainQueue() {
     if (draining) {
         return;
     }
-    var timeout = cachedSetTimeout.call(null, cleanUpNextTick);
+    var timeout = runTimeout(cleanUpNextTick);
     draining = true;
 
     var len = queue.length;
@@ -10145,7 +10158,7 @@ function drainQueue() {
     }
     currentQueue = null;
     draining = false;
-    cachedClearTimeout.call(null, timeout);
+    runClearTimeout(timeout);
 }
 
 process.nextTick = function (fun) {
@@ -10157,7 +10170,7 @@ process.nextTick = function (fun) {
     }
     queue.push(new Item(fun, args));
     if (queue.length === 1 && !draining) {
-        cachedSetTimeout.call(null, drainQueue, 0);
+        runTimeout(drainQueue);
     }
 };
 
@@ -10521,21 +10534,27 @@ exports.insert = function (css) {
 
 },{}],6:[function(require,module,exports){
 var __vueify_insert__ = require("vueify/lib/insert-css")
-var __vueify_style__ = __vueify_insert__.insert("\n.Filch{\n    border: 1px solid red;\n    padding: 10px;\n}\n")
-"use strict";
+var __vueify_style__ = __vueify_insert__.insert("\n.Filch{\n    border: 1px solid #2526ff; \n    padding: 10px;\n    margin-bottom:1vh;\n    height:10vh;\n    line-height:10vh;\n    display:inline-block;\n}\n")
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-     value: true
+    value: true
 });
-exports.default = {};
+exports.default = {
+    data: {
+        message: function message() {
+            return 'this is a default message';
+        }
+    }
+};
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"Filch\">\n    <p>Filch\n        <slot></slot>\n    </p>\n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"Filch\">\n     <span>Filch:</span>\n    <input type=\"text\" value=\"\">\n        <slot></slot>\n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   module.hot.dispose(function () {
-    __vueify_insert__.cache["\n.Filch{\n    border: 1px solid red;\n    padding: 10px;\n}\n"] = false
+    __vueify_insert__.cache["\n.Filch{\n    border: 1px solid #2526ff; \n    padding: 10px;\n    margin-bottom:1vh;\n    height:10vh;\n    line-height:10vh;\n    display:inline-block;\n}\n"] = false
     document.head.removeChild(__vueify_style__)
   })
   if (!module.hot.data) {
@@ -10557,13 +10576,11 @@ var _Filch2 = _interopRequireDefault(_Filch);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// var app = require('./app');
+// var app = require('./app'); is now hard coded into Vue({})
 
 new _Vue2.default({
     el: '#app',
-    data: {
-        message: "this is a message"
-    },
+    data: { message: "this is a message" },
     components: { Filch: _Filch2.default }
 });
 

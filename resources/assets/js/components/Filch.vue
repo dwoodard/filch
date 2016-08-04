@@ -1,8 +1,8 @@
 <template>
     <div class="Filch">
-         Filch
-            <slot></slot> 
-
+         <span>Filch:</span>
+        <input type="text" value=""/>
+            <slot></slot>
     </div>
 </template>
 
@@ -23,5 +23,6 @@
       margin-bottom:1vh;
       height:10vh;
       line-height:10vh;
+      display:inline-block;
   }
 </style>
