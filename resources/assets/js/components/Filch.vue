@@ -6,7 +6,7 @@
     </div>
 </template>
 
-<script>
+<script type="application/javascript;version=1.7">
     export default {
          data:{
              message: function(){

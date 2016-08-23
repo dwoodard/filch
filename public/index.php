@@ -10,7 +10,6 @@
 	<filch>test1</filch>
 	<filch>test2</filch>
 	<filch>test3</filch>
-
 </div>
 
 <script src="/js/main.js"></script>

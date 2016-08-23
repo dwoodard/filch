@@ -10586,4 +10586,4 @@ new _Vue2.default({
 
 },{"./components/Filch.vue":6,"Vue":1}]},{},[7]);
 
-//# sourceMappingURL=main.js.map
+//# sourceMappingURL=filch.js.map
