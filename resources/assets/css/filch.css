@@ -1,0 +1,138 @@
+/*Filch Component*/
+
+
+
+
+
+
+
+
+
+.filch input {
+  outline: none;
+}
+
+.filch input[type=search] {
+  -webkit-appearance: textfield;
+  -webkit-box-sizing: content-box;
+  font-family: inherit;
+  font-size: 100%;
+}
+
+.filch input::-webkit-search-decoration,
+.filch input::-webkit-search-cancel-button {
+  display: none;
+}
+
+.filch input[type=search] {
+  background: #ededed url(http://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 8px center;
+  border: solid 2px #ccc;
+  padding: 9px 10px 9px 32px;
+  width: 55px;
+  -webkit-border-radius: 10em;
+  -moz-border-radius: 10em;
+  border-radius: 10em;
+  -webkit-transition: all .5s;
+  -moz-transition: all .5s;
+  transition: all .5s;
+}
+
+.filch input[type=search]:focus {
+  width: 130px;
+  background-color: #fff;
+  border-color: #ccc;
+  -webkit-box-shadow: 0 0 5px rgba(109, 207, 246, .5);
+  -moz-box-shadow: 0 0 5px rgba(109, 207, 246, .5);
+  box-shadow: 0 0 5px rgba(109, 207, 246, .5);
+}
+
+.filch input:-moz-placeholder {
+  color: #999;
+}
+
+.filch input::-webkit-input-placeholder {
+  color: #999;
+}
+
+
+/*.filtch*/
+.filch input[type=search] {
+  width: 15px;
+  padding-left: 10px;
+  color: transparent;
+  cursor: pointer;
+}
+
+.filch input[type=search]:hover {
+  background-color: #fff;
+}
+
+.filch input[type=search]:focus {
+  width: 130px;
+  padding-left: 32px;
+  color: #000;
+  background-color: #fff;
+  cursor: auto;
+}
+
+.filch input:-moz-placeholder {
+  color: transparent;
+}
+
+.filch input::-webkit-input-placeholder {
+  color: transparent;
+}
+
+
+
+.filch {
+  font-size: 12px;
+  outline: 4px solid #333;
+}
+.filch-conatiner{
+  display:inline
+}
+.filch-primary {
+  position: relative;
+  background-color: #527dff;
+  color: #fff;
+  display: inline-block;
+  padding: 9px 16px;
+  padding-right: 10px;
+  margin-right: 20px;
+  text-transform: uppercase;
+  cursor: pointer;
+  opacity: 1;
+}
+
+.filch-primary:after {
+  position: absolute;
+  top: 0px;
+  right: -36px;
+  content: " ";
+  width: 0;
+  height: 0;
+  border: 16px solid transparent;
+  border-left: 20px solid #527dff;
+  z-index: 100
+}
+
+.filch-secondary {
+  position: relative;
+  background-color: #ccd9ff;
+  color: #333;
+  display: inline-block;
+  padding: 9px 50px;
+  padding-right: 30px;
+  margin-left: -23px;
+  margin-right: 10px;
+  opacity: 1;
+}
+
+
+.filch-search {
+  display: inline;
+}
+.filch-search input{
+  outline:none 
+}
