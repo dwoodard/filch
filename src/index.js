@@ -1,10 +1,6 @@
-export default
-class Filch {
-    constructor() {
-        this._name = 'Filch';
-    }
+var Vue = require('vue');
 
-    get name() {
-        return this._name;
-    }
-}
+export default
+Vue.component('filch', {
+    template: require('views/Filch.vue')
+});

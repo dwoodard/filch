@@ -42,9 +42,9 @@ RUN a2enmod rewrite
 RUN apt-get update && apt-get install -y libapache2-mod-xsendfile && a2enmod xsendfile
 
 # Setting document root
-RUN mkdir /var/www/html/public/
+#RUN mkdir /var/www/html/
 
-RUN sed -i "s#.*DocumentRoot /var/www/html#\tDocumentRoot /var/www/html/public#" /etc/apache2/sites-enabled/000-default.conf
+#RUN sed -i "s#.*DocumentRoot /var/www/html#\tDocumentRoot /var/www/html/#" /etc/apache2/sites-enabled/000-default.conf
 RUN sed -i "s#\#ServerName www.example.com#ServerName localhost#" /etc/apache2/sites-enabled/000-default.conf
 
 RUN sed -i 's/AllowOverride None/AllowOverride All/' /etc/apache2/apache2.conf

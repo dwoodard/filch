@@ -1,5 +1,5 @@
 import chai from 'chai';
-import Library from '../lib/filch.js';
+import Filch from '../lib/Filch.js';
 
 chai.expect();
 
@@ -7,9 +7,9 @@ const expect = chai.expect;
 
 var lib;
 
-describe('Given an instance of my library', function () {
+describe('Given an instance of my Filch', function () {
   before(function () {
-    lib = new Library();
+    lib = new Filch();
   });
   describe('when I need the name', function () {
     it('should return the name', () => {
